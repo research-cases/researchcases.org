@@ -48,9 +48,9 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      sass: {
+      compass: {
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['sass:server', 'autoprefixer']
+        tasks: ['compass:server', 'autoprefixer']
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
@@ -150,28 +150,31 @@ module.exports = function (grunt) {
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
-    sass: {
+    compass: {
       options: {
-        sourceMap: true,
-        includePaths: ['bower_components']
+        require: ['susy', 'breakpoint'],
+        sassDir:'<%= config.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= config.app %>/images',
+        javascriptsDir: '<%= config.app %>/scripts',
+        fontsDir: '<%= config.app %>/fonts',
+        importPath: ['bower_components'],
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/fonts',
+        relativeAssets: false,
+        sourcemap: true,
         },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
-          ext: '.css'
-        }]
+        options: {
+          generatedImagesDir: '<%= config.dist %>/images/generated'
+        }
       },
       server: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
-          ext: '.css'
-        }]
+        options: {
+          debugInfo: true
+        }
       }
     },
 
@@ -196,7 +199,7 @@ module.exports = function (grunt) {
         ignorePath: new RegExp('^<%= config.app %>/|../'),
         src: ['<%= config.app %>/index.html']
       },
-      sass: {
+      compass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
@@ -352,14 +355,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
-        'sass:server',
+        'compass:server',
         'copy:styles'
       ],
       test: [
+        'compass',
         'copy:styles'
       ],
       dist: [
-        'sass',
+        'compass:dist',
         'copy:styles',
         'imagemin',
         'svgmin'
@@ -422,9 +426,12 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.loadNpmTasks('grunt-contrib-compass');
+
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    'compass'
   ]);
 };
