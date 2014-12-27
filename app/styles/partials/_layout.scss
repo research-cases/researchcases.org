@@ -10,6 +10,14 @@
   }
 }
 
+.splash {
+  height: 100vh;
+
+  section {
+    transform: translateY(50%);
+  }
+}
+
 .central {
   @include span(1 at 2 break);
 

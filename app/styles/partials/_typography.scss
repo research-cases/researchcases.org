@@ -26,3 +26,9 @@ h3, .h3 {
 h4, .h4, .lead {
   font-style: italic;
 }
+
+@import "compass/typography/lists/inline-list";
+
+nav ul {
+  @include delimited-list(" \2022");
+}
