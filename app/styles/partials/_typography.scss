@@ -1,0 +1,28 @@
+// Modular Scale
+// ----------------------
+// 22px @ 1:1.333
+// 440px @ 1:1.333
+// ----------------------
+// See http://modularscale.com/scale/?px1=22&px2=440&ra1=1.333&ra2=0
+
+body {
+  font-variant-ligatures: common-ligatures discretionary-ligatures historical-ligatures contextual;
+}
+
+a {
+  text-decoration: underline;
+  color: $color-black;
+}
+
+#{headings()} {
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+h3, .h3 {
+  font-variant-caps: small-caps;
+}
+
+h4, .h4, .lead {
+  font-style: italic;
+}

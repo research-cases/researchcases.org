@@ -1,0 +1,47 @@
+.container {
+  @include container();
+
+  @include susy-breakpoint($tablet, $medium) {
+    @include show-grid;
+  }
+
+  @include susy-breakpoint($desktop, $large) {
+    @include container(1024px);
+  }
+}
+
+.central {
+  @include span(1 at 2 break);
+
+  @include susy-breakpoint($tablet, $medium) {
+    @include span(1 at 2);
+  }
+
+  @include susy-breakpoint($desktop, $large) {
+    @include span(3 at 2);
+  }
+}
+
+
+.page-header {
+  text-align: center;
+}
+
+.page-footer {
+
+}
+
+.introduction {
+
+  &:first-child:first-letter {
+    float: left;
+    font-size: 4.6875em;
+    line-height: 0.8em; 
+    padding-right: 5px;
+  }
+}
+
+.main {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: $base-line-height;
+}

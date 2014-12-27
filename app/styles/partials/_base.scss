@@ -1,0 +1,58 @@
+// Minimum browser support
+//$browser-minimum-versions: (ie: '9');
+
+// Setup vertical rhythm
+$base-font-size: 22px;
+$base-line-height: 29px;
+
+// Based on a modular scale [22px/440px]@1:1.333
+// http://modularscale.com/scale/?px1=22&px2=440&ra1=1.333&ra2=0
+$h1-font-size: 1.505 * $base-font-size;
+$h2-font-size: 1.333 * $base-font-size;
+$h3-font-size: 1.129 * $base-font-size;
+$h4-font-size: 1.000 * $base-font-size;
+$h5-font-size: 0.847 * $base-font-size;
+$h6-font-size: 0.750 * $base-font-size;
+
+$base-font-family: EBGaramond, Garamond, Georgia, serif;
+
+$indent-amount: 0;
+
+// Colors
+$background-body: #fafafa;
+$color-body: #333;
+$color-black: #0f0f0f;
+
+// Layout
+@include border-box-sizing;
+
+$breakpoint-to-ems: true;
+$breakpoint-default-media: screen;
+
+$phone: 320px;
+$tablet: 768px * 0.75;
+$desktop: 1024px * 0.75;
+
+$small: (
+  columns: (1 11 1),
+);
+
+$medium: (
+  columns: (1 5 1),
+);
+
+$large: (
+  columns: (2 1 1 1 2),
+);
+
+$susy: (
+  output: isolate,
+  global-box-sizing: border-box,
+  debug: (
+    image: show,
+    color: rgba(#66b3dc, 0.25),
+    output: overlay
+  )
+);
+
+@include layout($small);

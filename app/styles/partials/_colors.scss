@@ -1,0 +1,16 @@
+body {
+  background: $background-body;
+  color: $color-body;
+}
+
+::-moz-selection {
+  background: $color-body;
+  color: $background-body;
+  text-shadow: none;
+}
+
+::selection {
+  background: $color-body;
+  color: $background-body;
+  text-shadow: none;
+}
