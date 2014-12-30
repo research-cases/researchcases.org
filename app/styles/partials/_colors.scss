@@ -3,14 +3,27 @@ body {
   color: $color-body;
 }
 
-::-moz-selection {
-  background: $color-body;
+.motivated {
+  background: $color-base;
   color: $background-body;
+
+  a {
+    &:hover {
+      color: $color-body;
+    }
+  }
+}
+
+::-moz-selection {
+  background: $color-base;
+  color: $color-body;
   text-shadow: none;
 }
 
 ::selection {
-  background: $color-body;
-  color: $background-body;
+  background: $color-base;
+  color: $color-body;
   text-shadow: none;
 }
+
+@include scrollbar(rhythm(1/2), $background-body);

@@ -4,7 +4,9 @@
   "dependencies": {
     "modernizr": "~2.8.2",
     "jquery": "~1.11.1",
-    "normalize.scss": "~3.0.2+normalize.3.0.2"
+    "normalize.scss": "~3.0.2+normalize.3.0.2",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git",
+    "underscore": "~1.7.0"
   },
   "devDependencies": {}
 }

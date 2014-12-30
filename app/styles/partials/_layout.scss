@@ -1,20 +1,36 @@
+@import "compass/css3/transition";
+
+img {
+  max-width: 100%;
+}
+
+section {
+  @extend %clearfix;
+  padding-top: rhythm(2); // For fixed-header offset
+}
+
 .container {
-  @include container();
+  width: 90%;
+  @include container(1024px);
 
   @include susy-breakpoint($tablet, $medium) {
     @include show-grid;
   }
 
   @include susy-breakpoint($desktop, $large) {
-    @include container(1024px);
+    @include show-grid;
   }
 }
 
-.splash {
-  height: 100vh;
+@include susy-breakpoint($tablet, $medium) {
+  .splash {
+    height: 100vh;
+    position: relative;
 
-  section {
-    transform: translateY(50%);
+    section {
+      position: absolute;
+      top: 30%;
+    }
   }
 }
 
@@ -30,13 +46,112 @@
   }
 }
 
+.full {
+  @include span(1 at 2 break);
+
+  @include susy-breakpoint($tablet, $medium) {
+    @include span(1 at 2 break);
+  }
+
+  @include susy-breakpoint($desktop, $large) {
+    @include span(full break);
+  }
+}
+
+@include susy-breakpoint($desktop, $large) {
+
+  .leftnarrow {
+    @include span(2 at 1);
+
+    $context: nested(2 of $desktop at 1);
+
+    .right {
+      @include span(1 of $context at 2);
+    }
+
+    .left {
+      @include span(1 of $context at 1);
+    }
+  }
+
+  .rightnarrow {
+    @include span(2 at 4);
+  }
+
+  .leftwide {
+    @include span(3 at 1);
+  }
+
+  .rightwide {
+    @include span(3 at 3);
+  }
+
+  .leftwider {
+    @include span(4 at 1);
+  }
+
+  .rightwider {
+    @include span(4 at 2);
+  }
+
+  aside, aside.left, .leftaside {
+    @include span(1 at 1);
+  }
+
+  aside.right, .rightaside {
+    @include span(1 at 5);
+  }
+
+}
 
 .page-header {
-  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: -100px;
+  left: 0;
+  background: $color-base;
+  z-index: 499;
+  @include single-transition(top, 0.2s);
+
+  .h3 {
+    margin-top: rhythm(1/2, $h3-font-size);
+    margin-bottom: rhythm(1/2, $h3-font-size);
+  }
+
+  &.shown {
+    top: 0;
+  }
 }
 
 .page-footer {
+  border-top: 1px solid #ccc;
+  font-family: $legal-font-family; 
+  @include adjust-font-size-to(16px);
+}
 
+.pinned {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 579;
+
+  & .nav-wrapper {
+    @extend .container;
+  }
+
+  nav {
+    @extend .central;
+  }
+
+  a {
+    @include rhythm-padding(1/2);
+    display: inline-block;
+
+    &:hover {
+      color: $color-body;
+    }
+  }
 }
 
 .introduction {
@@ -50,6 +165,5 @@
 }
 
 .main {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: $base-line-height;
+  @include padding-trailer;
 }

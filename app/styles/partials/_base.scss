@@ -15,13 +15,20 @@ $h5-font-size: 0.847 * $base-font-size;
 $h6-font-size: 0.750 * $base-font-size;
 
 $base-font-family: EBGaramond, Garamond, Georgia, serif;
+$legal-font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
 
 $indent-amount: 0;
 
 // Colors
-$background-body: #fafafa;
-$color-body: #333;
+$background-body: #333;
+$color-body: #fafafa;
 $color-black: #0f0f0f;
+
+$color-base: #f7560c;
+$color-base-lighter: #f76725;
+$color-base-darker: #aa3904;
+$color-complement: #0cf7de;
+$color-complement-darker: #00aa98;
 
 // Layout
 @include border-box-sizing;
@@ -31,7 +38,7 @@ $breakpoint-default-media: screen;
 
 $phone: 320px;
 $tablet: 768px * 0.75;
-$desktop: 1024px * 0.75;
+$desktop: 1024px * 0.847;
 
 $small: (
   columns: (1 11 1),
@@ -55,4 +62,5 @@ $susy: (
   )
 );
 
+// Mobile first
 @include layout($small);

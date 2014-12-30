@@ -1,3 +1,6 @@
+@import "compass/typography/lists/inline-list";
+@import "compass/css3/hyphenation";
+
 // Modular Scale
 // ----------------------
 // 22px @ 1:1.333
@@ -11,7 +14,15 @@ body {
 
 a {
   text-decoration: underline;
-  color: $color-black;
+  color: $color-body;
+
+  &:hover {
+    color: $color-base;
+  }
+}
+
+@each $h in headings() {
+  .#{$h} { @extend #{$h}; }
 }
 
 #{headings()} {
@@ -19,16 +30,65 @@ a {
   text-rendering: optimizeLegibility;
 }
 
-h3, .h3 {
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+h3 {
   font-variant-caps: small-caps;
 }
 
-h4, .h4, .lead {
+h4, .lead {
   font-style: italic;
 }
 
-@import "compass/typography/lists/inline-list";
+aside, figcaption {
+  @include adjust-font-size-to(0.847em);
+}
+
+blockquote {
+  quotes: "\201C""\201D""\2018""\2019";
+
+  p {
+    display: inline;
+  }
+
+  &:before {
+    content: open-quote;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
 
 nav ul {
-  @include delimited-list(" \2022");
+  @include delimited-list("\2003");
+}
+
+p {
+  @include hyphenation;
+}
+
+.caption-left, .caption-right {
+  font-style: italic;
+  @include padding-trailer;
+}
+
+@include susy-breakpoint($desktop, $large) {
+
+  .caption-left {
+    text-align: right;
+  }
+
+  .caption-right {
+    border-left: 1px solid $color-complement;
+    text-align: left;
+  }
+
+}
+
+.normal {
+  font-style: normal;
 }
