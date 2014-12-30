@@ -165,7 +165,7 @@ module.exports = function (grunt) {
         httpFontsPath: '/fonts',
         relativeAssets: false,
         sourcemap: true,
-        },
+      },
       dist: {
         options: {
           generatedImagesDir: '<%= config.dist %>/images/generated'
