@@ -426,8 +426,6 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
-
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
