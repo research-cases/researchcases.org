@@ -55,12 +55,19 @@ $large: (
 $susy: (
   output: isolate,
   global-box-sizing: border-box,
-  debug: (
-    image: show,
-    color: rgba(#66b3dc, 0.25),
-    output: overlay
-  )
 );
+
+@if compass-env() == 'development' {
+  $susy: (
+    output: isolate,
+    global-box-sizing: border-box,
+    debug: (
+      image: show,
+      color: rgba(#66b3dc, 0.25),
+      output: overlay
+    )
+  )
+}
 
 // Mobile first
 @include layout($small);
