@@ -57,6 +57,10 @@
   }
 }
 
+.group {
+  @extend %clearfix;
+}
+
 @mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
     ::-webkit-scrollbar {
         width:  $size;

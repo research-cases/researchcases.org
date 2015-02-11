@@ -42,24 +42,28 @@ $desktop: 1024px * 0.847;
 
 $small: (
   columns: (1 11 1),
+  container: 100%,
+  output: isolate,
 );
 
 $medium: (
   columns: (1 5 1),
+  container: 100%,
+  output: isolate,
 );
 
 $large: (
   columns: (2 1 1 1 2),
+  container: 1024px,
+  output: isolate,
 );
 
 $susy: (
-  output: isolate,
   global-box-sizing: border-box,
 );
 
 @if compass-env() == 'development' {
   $susy: (
-    output: isolate,
     global-box-sizing: border-box,
     debug: (
       image: show,
