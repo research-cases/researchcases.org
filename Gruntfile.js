@@ -352,6 +352,13 @@ module.exports = function (grunt) {
       }
     },
 
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
@@ -430,5 +437,10 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'gh-pages'
   ]);
 };
