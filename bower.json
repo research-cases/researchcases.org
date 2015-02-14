@@ -7,5 +7,9 @@
     "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git",
     "underscore": "~1.7.0"
   },
-  "devDependencies": {}
+  "overrides": {
+    "smooth-scroll": {
+      "main": "dist/js/smooth-scroll.js" 
+    }
+  }
 }
