@@ -168,6 +168,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
+          environment: 'production',
           generatedImagesDir: '<%= config.dist %>/images/generated'
         }
       },
