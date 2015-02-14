@@ -94,6 +94,16 @@ section {
 
   .leftwide {
     @include span(3 at 1);
+
+    $context: nested(3 of $desktop at 1);
+
+    .right {
+      @include span(2 of $context at 2);
+    }
+
+    .left {
+      @include span(1 of $context at 1);
+    }
   }
 
   .rightwide {
