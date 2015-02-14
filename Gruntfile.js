@@ -252,6 +252,13 @@ module.exports = function (grunt) {
     },
 
     svgmin: {
+      options: {
+        plugins: [
+          { removeMetadata: false },
+          { convertPathData: false },
+          { collapseGroups: false },
+        ]
+      },
       dist: {
         files: [{
           expand: true,
