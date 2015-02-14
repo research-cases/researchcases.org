@@ -112,6 +112,16 @@ section {
 
   .leftwider {
     @include span(4 at 1);
+
+    $context: nested(4 of $desktop at 1);
+
+    .right {
+      @include span(3 of $context at 2);
+    }
+
+    .left {
+      @include span(1 of $context at 1);
+    }
   }
 
   .rightwider {
