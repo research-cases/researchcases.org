@@ -36,8 +36,14 @@ section {
 
     section {
       position: absolute;
-      top: 30%;
+      top: 18%;
       padding-top: 0;
+    }
+  }
+
+  @include susy-breakpoint($desktop, $large) {
+    section {
+      top: 30%;
     }
   }
 }
@@ -138,12 +144,6 @@ section {
 }
 
 .pinned {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 579;
-
   & .nav-wrapper {
     @extend .container;
   }
@@ -159,6 +159,14 @@ section {
     &:hover {
       color: $color-body;
     }
+  }
+
+  @include susy-breakpoint($desktop, $large) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 579;
   }
 }
 
