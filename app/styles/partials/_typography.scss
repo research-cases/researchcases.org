@@ -1,5 +1,4 @@
 @import "compass/typography/lists/inline-list";
-@import "compass/typography/links/link-colors";
 @import "compass/css3/hyphenation";
 
 // Modular Scale
@@ -15,7 +14,11 @@ body {
 
 a {
   text-decoration: underline;
-  @include link-colors($color-body, $color-base);
+  color: $color-body;
+  
+  &:hover, &:visited {
+    color: $color-base;
+  }
 }
 
 @each $h in headings() {
