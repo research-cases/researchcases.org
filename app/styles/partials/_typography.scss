@@ -15,7 +15,7 @@ body {
 
 a {
   text-decoration: underline;
-  @include link-colors($color-body, $color-base);
+  @include link-colors($color-body, $color-base, $color-body, $color-body, $color-body);
 }
 
 @each $h in headings() {
